@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Download | MishpitGames</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0b0e11; color: #d1d5db; }
+        .torrent-box { background: #16191e; border: 1px solid #232a33; }
+        .magnet-btn { background: #e91e63; transition: 0.3s; }
+        .magnet-btn:hover { background: #ff4081; transform: scale(1.02); }
+    </style>
+</head>
+<body>
+
+    <div class="container mx-auto py-20 px-4 max-w-4xl">
+        <a href="index.html" class="text-blue-500 hover:underline mb-8 block">← Zurück zur Übersicht</a>
+
+        <div class="torrent-box rounded-xl p-8 shadow-2xl">
+            <div class="flex flex-col md:flex-row gap-8">
+                <img id="gameImg" src="" class="w-full md:w-64 rounded-lg shadow-lg border border-gray-700">
+                
+                <div class="flex-grow">
+                    <h1 id="gameTitle" class="text-4xl font-black text-white mb-2 uppercase italic tracking-tighter">Lade Daten...</h1>
+                    <p id="gameID" class="font-mono text-blue-400 text-sm mb-6"></p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8 text-sm">
+                        <div class="bg-[#0f1115] p-3 rounded">
+                            <span class="block text-gray-500 uppercase text-[10px]">Status</span>
+                            <span class="text-green-400 font-bold">Verifiziert & Sicher</span>
+                        </div>
+                        <div class="bg-[#0f1115] p-3 rounded">
+                            <span class="block text-gray-500 uppercase text-[10px]">Format</span>
+                            <span class="text-white font-bold">.ZIP / Torrent</span>
+                        </div>
+                    </div>
+
+                    <a id="magnetLink" href="#" class="magnet-btn w-full block text-center py-4 rounded-lg text-white font-black text-xl shadow-lg">
+                        🧲 MAGNET DOWNLOAD (TORRENT)
+                    </a>
+                    <p class="text-center text-[10px] text-gray-500 mt-4 italic">
+                        Hinweis: Du benötigst einen Torrent-Client wie qBittorrent, um dieses Spiel zu laden.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Diese "Datenbank" müsste später in eine externe JSON-Datei
+        const gameDatabase = {
+            "cyber-moshpit": { title: "Cyber Moshpit", id: "MP-001", magnet: "magnet:?xt=urn:btih:EXAMPLE123...", img: "https://picsum.photos/seed/MP-001/400/225" },
+            "dungeon-crawler": { title: "Dungeon Crawler", id: "MP-002", magnet: "magnet:?xt=urn:btih:EXAMPLE456...", img: "https://picsum.photos/seed/MP-002/400/225" },
+            "void-star": { title: "Void Star", id: "MP-003", magnet: "magnet:?xt=urn:btih:EXAMPLE789...", img: "https://picsum.photos/seed/MP-003/400/225" }
+        };
+
+        // URL auslesen (z.B. ?game=cyber-moshpit)
+        const params = new URLSearchParams(window.location.search);
+        const gameKey = params.get('game');
+        const gameData = gameDatabase[gameKey];
+
+        if (gameData) {
+            document.getElementById('gameTitle').innerText = gameData.title;
+            document.getElementById('gameID').innerText = "OFFICIAL RELEASE ID: " + gameData.id;
+            document.getElementById('gameImg').src = gameData.img;
+            document.getElementById('magnetLink').href = gameData.magnet;
+            document.title = gameData.title + " | MishpitGames";
+        } else {
+            document.body.innerHTML = "<h1 class='text-center mt-20'>Spiel nicht gefunden!</h1>";
+        }
+    </script>
+</body>
+</html>

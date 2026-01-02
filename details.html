@@ -27,7 +27,7 @@
                     <div class="grid grid-cols-2 gap-4 mb-8 text-sm">
                         <div class="bg-[#0f1115] p-3 rounded">
                             <span class="block text-gray-500 uppercase text-[10px]">Status</span>
-                            <span class="text-green-400 font-bold">Verifiziert & Sicher</span>
+                            <span class="text-green-400 font-bold">Verified & Safe</span>
                         </div>
                         <div class="bg-[#0f1115] p-3 rounded">
                             <span class="block text-gray-500 uppercase text-[10px]">Format</span>
@@ -41,6 +41,11 @@
                     <p class="text-center text-[20px] text-gray-500 mt-4 italic">
                         Note: You will need a torrent client such as <a href="https://www.bittorrent.com/downloads/complete/classic/">BitTorrent</a> to download this game. We also recommend using <a href="https://www.bittorrent.com/de/token/bittorrent-speed/">BitTorrent Speed</a> to provide faster download options.
                     </p>
+                    <a id="buzzheavier" href="#" class="magnet-btn w-full block text-center py-4 rounded-lg text-white font-black text-xl shadow-lg">
+                        📁 FILE DOWNLOAD (FASTER AND RECOMMEND)
+                    </a>
+                    <p class="text-center text-[20px] text-gray-500 mt-4 italic">
+                        Note: We are using Buzzheavier, and only buzzheavier, to host our direct downloads. This is to ensure the fastest and most reliable download experience for our users. If you see our files hosted anywhere else, please avoid downloading from those sources as they may be unsafe versions with malware. We do not host on MegaDB, Mega, ViKiNG FiLES, Google Drive, DataNodes, fuckingfast or any other file hosting services.
                 </div>
             </div>
         </div>
@@ -49,8 +54,8 @@
     <script>
         // Diese "Datenbank" müsste später in eine externe JSON-Datei
         const gameDatabase = {
-            "brazilian-drug-dealer": { title: "Brazilian Drug Dealer", id: "brazilian.drug.dealer", magnet: "magnet:?xt=urn:btih:D8C92BEEBEFBFE640186CE97C0251898ADB79E18&dn=Brazilain-Drug-Dealer&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce", img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3191050/274bcccf2d730c0a545f17b5c01e666037d0afba/header.jpg?t=1765999318" },
-            "how-to-train-your-dog": { title: "How to Train your Cock", id: "how.to.train.your.cock", magnet: "magnet:?xt=urn:btih:5969F9024A649EAC2D610EB1A92C79BB34FCE4CA&dn=How-to-Train-Your-Cock&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce", img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3673060/beea219cae5f44904a1befba6a292f8be1db9b04/header_alt_assets_0.jpg?t=1765389463" },
+            "brazilian-drug-dealer": { title: "Brazilian Drug Dealer", id: "brazilian.drug.dealer", magnet: "magnet:?xt=urn:btih:D8C92BEEBEFBFE640186CE97C0251898ADB79E18&dn=Brazilain-Drug-Dealer&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce", buzzheavier: "", img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3191050/274bcccf2d730c0a545f17b5c01e666037d0afba/header.jpg?t=1765999318" },
+            "how-to-train-your-dog": { title: "How to Train your Cock", id: "how.to.train.your.cock", magnet: "magnet:?xt=urn:btih:5969F9024A649EAC2D610EB1A92C79BB34FCE4CA&dn=How-to-Train-Your-Cock&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce", buzzheavier: "https://buzzheavier.com/mnyk8dn9ejrz", img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3673060/beea219cae5f44904a1befba6a292f8be1db9b04/header_alt_assets_0.jpg?t=1765389463" },
             "void-star": { title: "Void Star", id: "MP-003", magnet: "magnet:?xt=urn:btih:EXAMPLE789...", img: "https://picsum.photos/seed/MP-003/400/225" }
         };
 
@@ -64,9 +69,10 @@
             document.getElementById('gameID').innerText = "OFFICIAL RELEASE ID: " + gameData.id;
             document.getElementById('gameImg').src = gameData.img;
             document.getElementById('magnetLink').href = gameData.magnet;
+            document.getElementById('buzzheavier').href = gameData.buzzheavier || "#";
             document.title = gameData.title + " | MishpitGames";
         } else {
-            document.body.innerHTML = "<h1 class='text-center mt-20'>Spiel nicht gefunden!</h1>";
+            document.body.innerHTML = "<h1 class='text-center mt-20'>Game not found! :C</h1>";
         }
     </script>
 </body>

@@ -56,7 +56,7 @@
         const gameDatabase = {
             "brazilian-drug-dealer": { title: "Brazilian Drug Dealer", id: "brazilian.drug.dealer", magnet: "magnet:?xt=urn:btih:D8C92BEEBEFBFE640186CE97C0251898ADB79E18&dn=Brazilain-Drug-Dealer&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce", buzzheavier: "", img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3191050/274bcccf2d730c0a545f17b5c01e666037d0afba/header.jpg?t=1765999318" },
             "how-to-train-your-dog": { title: "How to Train your Cock", id: "how.to.train.your.cock", magnet: "magnet:?xt=urn:btih:5969F9024A649EAC2D610EB1A92C79BB34FCE4CA&dn=How-to-Train-Your-Cock&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce", buzzheavier: "https://buzzheavier.com/mnyk8dn9ejrz", img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3673060/beea219cae5f44904a1befba6a292f8be1db9b04/header_alt_assets_0.jpg?t=1765389463" },
-            "void-star": { title: "Void Star", id: "MP-003", magnet: "magnet:?xt=urn:btih:EXAMPLE789...", img: "https://picsum.photos/seed/MP-003/400/225" }
+            "minecraft-bedrock-edition": { title: "Minecraft Bedrock Edition", id: "minecraft.bedrock.edition", magnet: "magnet:?xt=urn:btih:EXAMPLE789...", buzzheavier: "", img: "https://picsum.photos/seed/MP-003/400/225" }
         };
 
         // URL auslesen (z.B. ?game=cyber-moshpit)
@@ -69,7 +69,7 @@
             document.getElementById('gameID').innerText = "OFFICIAL RELEASE ID: " + gameData.id;
             document.getElementById('gameImg').src = gameData.img;
             document.getElementById('magnetLink').href = gameData.magnet;
-            document.getElementById('buzzheavier').href = gameData.buzzheavier || "#";
+            document.getElementById('buzzheavier').href = gameData.buzzheavier;
             document.title = gameData.title + " | MishpitGames";
         } else {
             document.body.innerHTML = "<h1 class='text-center mt-20'>Game not found! :C</h1>";

@@ -10,12 +10,12 @@
         color: #d1d5db;
         font-family: sans-serif;
       }
-      .mishpit-card {
+      .game-card {
         background: #16191e;
         border: 1px solid #232a33;
         transition: 0.3s;
       }
-      .mishpit-card:hover {
+      .game-card:hover {
         border-color: #3b82f6;
         transform: translateY(-3px);
       }
@@ -121,7 +121,7 @@
           tags: ["Survival", "Open World"],
           score: 7.7,
           slug: "peak",
-          image:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3527290/31bac6b2eccf09b368f5e95ce510bae2baf3cfcd/header.jpg?t=1764003551",
+          image:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3527290/31bac6b2eccf09b368f5e95ce510bae2baf3cfcd/header.jpg",
         },
         {
           id: "ghostbusters",
@@ -129,7 +129,15 @@
           tags: ["Action", "Adventure"],
           score: 8.0,
           slug: "ghostbusters",
-          image:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1449280/header.jpg?t=1607351334",
+          image:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1449280/header.jpg",
+        },
+        {
+          id: "resident.evil.2",
+          title: "Resident Evil 2: Remake",
+          tags: ["Action", "Puzzle", "Horror", "Gore"],
+          score: 8.9,
+          slug: "resident-evil-2",
+          image:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/883710/header.jpg",
         }
       ];
 
@@ -138,7 +146,7 @@
         grid.innerHTML = games
           .map(
             (g) => `
-            <div class="mishpit-card rounded-lg overflow-hidden flex flex-col">
+            <div class="game-card rounded-lg overflow-hidden flex flex-col">
                 <img src="${g.image}" alt="${
               g.title
             }" class="w-full h-48 object-cover opacity-80">
@@ -178,7 +186,7 @@
 
       function search() {
         const val = document.getElementById("searchInput").value.toLowerCase();
-        const cards = document.querySelectorAll(".mishpit-card");
+        const cards = document.querySelectorAll(".game-card");
         cards.forEach((card, i) => {
           const match =
             games[i].title.toLowerCase().includes(val) ||

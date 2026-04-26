@@ -43,10 +43,10 @@
     <script>
         const SUPABASE_URL = 'https://prjrsoclymkniaecasli.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_Lk8fQGjfZ1QZRLKu8Af52A_EgGAOf2Q';
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         async function fetchRequests() {
-            const { data, error } = await supabase
+            const { data, error } = await supabaseClient
                 .from('requests')
                 .select('*')
                 .order('created_at', { ascending: false });
@@ -75,7 +75,7 @@
         async function deleteReq(id) {
             if(!confirm("Als erledigt markieren und löschen?")) return;
             
-            const { error } = await supabase
+            const { error } = await supabaseClient
                 .from('requests')
                 .delete()
                 .eq('id', id);

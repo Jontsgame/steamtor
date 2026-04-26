@@ -28,7 +28,7 @@
         // DATEN HIER EINTRAGEN
         const SUPABASE_URL = 'https://prjrsoclymkniaecasli.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_Lk8fQGjfZ1QZRLKu8Af52A_EgGAOf2Q';
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         document.getElementById('submitBtn').onclick = async () => {
             const input = document.getElementById('requestInput');
@@ -36,7 +36,7 @@
 
             if (!content) return alert("Bitte etwas eingeben!");
 
-            const { error } = await supabase
+            const { error } = await supabaseClient
                 .from('requests')
                 .insert([{ content: content }]);
 

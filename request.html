@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anfrage stellen</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root { --primary: #3ecf8e; --bg: #f4f7f6; --text: #1c1c1c; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 400px; }
+        h1 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text); }
+        input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; margin-bottom: 1rem; font-size: 1rem; }
+        button { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: opacity 0.2s; }
+        button:hover { opacity: 0.9; }
+        .link { display: block; text-align: center; margin-top: 1rem; color: #666; text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Was wünschst du dir?</h1>
+        <input type="text" id="requestInput" placeholder="Deine Anfrage..." maxlength="200">
+        <button id="submitBtn">Anfrage senden</button>
+        <a href="yet_requests.html" class="link">Alle Anfragen ansehen →</a>
+    </div>
+
+    <script>
+        // DATEN HIER EINTRAGEN
+        const SUPABASE_URL = 'https://prjrsoclymkniaecasli.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_Lk8fQGjfZ1QZRLKu8Af52A_EgGAOf2Q';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        document.getElementById('submitBtn').onclick = async () => {
+            const input = document.getElementById('requestInput');
+            const content = input.value.trim();
+
+            if (!content) return alert("Bitte etwas eingeben!");
+
+            const { error } = await supabase
+                .from('requests')
+                .insert([{ content: content }]);
+
+            if (error) {
+                alert("Fehler: " + error.message);
+            } else {
+                input.value = '';
+                alert("Erfolgreich gespeichert!");
+            }
+        };
+    </script>
+</body>
+</html>

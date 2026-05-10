@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>steamTOR | Sqrl Reward</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0b0e11;
+      color: #d1d5db;
+      font-family: sans-serif;
+    }
+
+    .game-card {
+      background: #16191e;
+      border: 1px solid #232a33;
+      transition: 0.3s;
+    }
+
+    .game-card:hover {
+      border-color: #3b82f6;
+      transform: translateY(-3px);
+    }
+
+    .magnet-color {
+      color: #ff5555;
+    }
+
+    /* Klassisches Magnet-Rot */
+  </style>
+</head>
+
+<body>
+  <header class="bg-[#171a21] border-b border-blue-500/30 p-6 shadow-xl">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-4xl font-black text-white italic tracking-tighter">
+        Sqrl<span class="text-blue-500">Reward</span>
+      </h1>
+    </div>
+  </header>
+
+  <main class="container mx-auto py-10 px-4">
+    <div id="gameGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+  </main>
+
+  <!-- BEGIN AADS AD UNIT 2435589 -->
+
+  <div style="position: absolute; z-index: 99999">
+    <input autocomplete="off" type="checkbox" id="aadsstickymoeou1uv" hidden />
+    <div style="padding-top: 0; padding-bottom: auto;">
+      <div
+        style="width:100%;height:auto;position:fixed;text-align:center;font-size:0;bottom:0;left:0;right:0;margin:auto">
+        <label for="aadsstickymoeou1uv"
+          style="top: 50%;transform: translateY(-50%);right:24px;; position: absolute;border-radius: 4px; background: rgba(248, 248, 249, 0.70); padding: 4px;z-index: 99999;cursor:pointer">
+          <svg fill="#000000" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 490">
+            <polygon
+              points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 " />
+          </svg>
+        </label>
+        <div id="frame" style="width: 100%;margin: auto;position: relative; z-index: 99998;"><iframe data-aa=2435589
+            src=//acceptable.a-ads.com/2435589/?size=Adaptive
+            style='border:0; padding:0; width:70%; height:auto; overflow:hidden; margin: auto'></iframe></div>
+      </div>
+      <style>
+        #aadsstickymoeou1uv:checked+div {
+          display: none;
+        }
+      </style>
+    </div>
+  </div>
+
+  <!-- END AADS AD UNIT 2435589 -->
+
+  <script>
+    const games = [
+      {
+        id: "brazilian.drug.dealer",
+        title: "Brazilian Drug Dealer",
+        tags: ["Shooter", "Crime"],
+        score: 9.2,
+        slug: "brazilian-drug-dealer",
+        image:
+          "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3191050/274bcccf2d730c0a545f17b5c01e666037d0afba/header.jpg?t=1765999318https://picsum.photos/seed/MP-001/400/225",
+      },
+      {
+        id: "resident.evil.2",
+        title: "Resident Evil 2: Remake",
+        tags: ["Action", "Puzzle", "Horror", "Gore"],
+        score: 8.9,
+        slug: "resident-evil-2",
+        image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/883710/header.jpg",
+      },
+      {
+        id: "geometry.dash",
+        title: "Geometry Dash",
+        tags: ["Puzzle", "Action", "2D", "Parkour"],
+        score: 8.1,
+        slug: "geometry-dash",
+        image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/322170/header.jpg?t=1775300400",
+      },
+      {  
+      id: "hotline.miami",
+      title: "Hotline Miami",
+      tags: ["2D", "Action", "Shooter", "Blood/Gore"],
+      score: 8.5,
+      slug: "hotline-miami",
+      image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/219150/header.jpg?t=1686261983"
+      },
+      {
+      id: "super.mario.odyssey",
+      title: "Super Mario Odyssey",
+      tags: ["3D", "Jump 'N Run", "Emulator", "Nintendo Switch Game"],
+      score: 8.9,
+      slug: "super-mario-odyssey",
+      image: "https://m.media-amazon.com/images/I/91SF0Tzmv4L._AC_UF894,1000_QL80_.jpg"
+      },
+      {
+        id: "gambonanza",
+        title: "Gambonanza",
+        tags: ["2D", "Chess-like", "Fun", "Pixel Art"],
+        score: "7.0",
+        slug: "gambonanza",
+        image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3509230/header.jpg?t=1778241359"
+      }
+    ];
+
+    function render() {
+      const grid = document.getElementById("gameGrid");
+      grid.innerHTML = games
+        .map(
+          (g) => `
+            <div class="game-card rounded-lg overflow-hidden flex flex-col">
+                <img src="${g.image}" alt="${g.title
+            }" class="w-full h-48 object-cover opacity-80">
+                
+                <div class="p-4 flex-grow">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-[10px] bg-blue-900/30 text-blue-400 px-2 py-0.5 rounded font-mono">${g.id
+            }</span>
+                        <span class="text-[10px] text-green-500 font-bold">● ${g.score
+            } User Score</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">${g.title
+            }</h3>
+                    <div class="flex flex-wrap gap-1 mb-4">
+                        ${g.tags
+              .map(
+                (t) =>
+                  `<span class="text-[10px] border border-gray-700 px-2 py-0.5 rounded text-gray-400">${t}</span>`
+              )
+              .join("")}
+                    </div>
+                </div>
+                <a href="details.html?game=${g.slug
+            }" class="bg-blue-600 hover:bg-blue-500 text-white text-center py-3 font-bold uppercase tracking-widest text-sm transition">
+                    View Repack details
+                </a>
+            </div>
+        `
+        )
+        .join("");
+    }
+    render();
+
+    function search() {
+      const val = document.getElementById("searchInput").value.toLowerCase();
+      const cards = document.querySelectorAll(".game-card");
+      cards.forEach((card, i) => {
+        const match =
+          games[i].title.toLowerCase().includes(val) ||
+          games[i].id.toLowerCase().includes(val);
+        card.style.display = match ? "flex" : "none";
+      });
+    }
+  </script>
+</body>
+
+</html>
